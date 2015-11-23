@@ -1,0 +1,7 @@
+{
+      "storage.default-namespace": "develop",
+      "mysql.host": "phabricator_db",
+      "mysql.pass": "password",
+      "mysql.user": "root",
+      "pygments.enabled": true
+}
