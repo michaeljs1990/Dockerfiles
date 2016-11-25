@@ -6,6 +6,7 @@ services:
     ports:
      - "2181:2181"
     volumes:
+     - ./cluster/zk1-tmp:/tmp
      - ./cluster/zk1:/tmp/zookeeper
      - ./cluster/conf:/opt/zookeeper/conf
   zk2:
@@ -14,6 +15,7 @@ services:
     ports:
      - "2182:2181"
     volumes:
+     - ./cluster/zk2-tmp:/tmp
      - ./cluster/zk2:/tmp/zookeeper
      - ./cluster/conf:/opt/zookeeper/conf
     depends_on: 
@@ -24,6 +26,7 @@ services:
     ports:
      - "2183:2181"
     volumes:
+     - ./cluster/zk3-tmp:/tmp
      - ./cluster/zk3:/tmp/zookeeper
      - ./cluster/conf:/opt/zookeeper/conf
     depends_on:
