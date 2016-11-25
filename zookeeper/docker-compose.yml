@@ -1,0 +1,26 @@
+version: '2'
+services:
+  zk1:
+    image: jplock/zookeeper
+    container_name: zk1
+    ports:
+     - "2181:2181"
+    volumes:
+     - ./cluster/zk1:/tmp/zookeeper
+     - ./cluster/conf:/opt/zookeeper/conf
+  zk2:
+    image: jplock/zookeeper
+    container_name: zk2
+    ports:
+     - "2182:2181"
+    volumes:
+     - ./cluster/zk2:/tmp/zookeeper
+     - ./cluster/conf:/opt/zookeeper/conf
+  zk3:
+    image: jplock/zookeeper
+    container_name: zk3
+    ports:
+     - "2183:2181"
+    volumes:
+     - ./cluster/zk3:/tmp/zookeeper
+     - ./cluster/conf:/opt/zookeeper/conf
