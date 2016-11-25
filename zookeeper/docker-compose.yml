@@ -16,6 +16,8 @@ services:
     volumes:
      - ./cluster/zk2:/tmp/zookeeper
      - ./cluster/conf:/opt/zookeeper/conf
+    depends_on: 
+     - zk1
   zk3:
     image: jplock/zookeeper
     container_name: zk3
@@ -24,3 +26,5 @@ services:
     volumes:
      - ./cluster/zk3:/tmp/zookeeper
      - ./cluster/conf:/opt/zookeeper/conf
+    depends_on:
+     - zk2
