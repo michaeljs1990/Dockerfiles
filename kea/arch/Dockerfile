@@ -3,4 +3,6 @@
 FROM base/archlinux:latest
 
 # Install the kea community package
-RUN pacman -Syu --noconfirm community/kea
+RUN pacman -Syu --noconfirm community/kea \
+    && pacman -Sc --noconfirm \
+    && mkdir -p /var/run/kea
