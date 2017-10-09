@@ -11,14 +11,18 @@ RUN git clone https://github.com/isc-projects/kea.git
 WORKDIR /kea
 
 RUN autoreconf --install \
-    && ./configure --prefix=/kea --with-dhcp-mysql --enable-generate-docs \
-    && make -j4 \
-    && make install prefix=/kea
+    && ./configure --prefix=/usr \
+         --sbindir=/usr/bin \
+         --libexecdir=/usr/bin \
+         --sysconfdir=/etc \
+         --localstatedir=/var \
+         --with-dhcp-mysql \
+         --enable-generate-docs \
+    && make -j4 DESTDIR=/kea install
 
 FROM ubuntu:xenial
 
-ENV PATH "/kea:${PATH}"
-ENV LD_LIBRARY_PATH "/kea/lib:${LD_LIBRARY_PATH}"
+VOLUME /var/run/kea
 
 RUN apt-get update \
     && apt-get install -y libssl1.0.0 \
@@ -27,14 +31,10 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /kea/lib
-COPY --from=builder /kea/lib/ .
-
-WORKDIR /kea
-COPY --from=builder /kea/sbin/ .
-COPY --from=builder /kea/bin/ .
+COPY --from=builder /kea/usr/lib/ /usr/lib
+COPY --from=builder /kea/usr/share/kea/ /usr/share/kea
+COPY --from=builder /kea/usr/bin/ /usr/bin
 
 RUN mkdir -p /usr/local/share/man/man8/
-COPY --from=builder /kea/share/man/man8/ /usr/local/share/man/man8
+COPY --from=builder /kea/usr/share/man/man8/ /usr/local/share/man/man8
 RUN mandb
-
