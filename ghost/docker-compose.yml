@@ -1,0 +1,6 @@
+dhcpd:
+  image: ghost:1.19.0
+  ports:
+    - 3001:2368
+  volumes:
+    - ./content:/var/lib/ghost/content
