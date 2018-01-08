@@ -2,6 +2,8 @@ version: '2'
 services:
   zk1:
     image: jplock/zookeeper
+    networks:
+     - zookeeper
     container_name: zk1
     ports:
      - "2181:2181"
@@ -11,6 +13,8 @@ services:
      - ./cluster/conf:/opt/zookeeper/conf
   zk2:
     image: jplock/zookeeper
+    networks:
+     - zookeeper
     container_name: zk2
     ports:
      - "2182:2181"
@@ -22,6 +26,8 @@ services:
      - zk1
   zk3:
     image: jplock/zookeeper
+    networks:
+     - zookeeper
     container_name: zk3
     ports:
      - "2183:2181"
@@ -31,3 +37,8 @@ services:
      - ./cluster/conf:/opt/zookeeper/conf
     depends_on:
      - zk2
+
+networks:
+  zookeeper:
+    driver: bridge
+
