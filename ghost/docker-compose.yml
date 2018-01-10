@@ -4,6 +4,6 @@ ghost:
     - 3001:2368
   environment:
     NODE_ENV: production
-    url: http://192.168.2.4:3001
+    url: "${URL}"
   volumes:
     - ./content:/var/lib/ghost/content
