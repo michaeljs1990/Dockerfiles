@@ -1,6 +1,9 @@
-dhcpd:
+ghost:
   image: ghost:1.19.0
   ports:
     - 3001:2368
+  environment:
+    NODE_ENV: production
+    url: http://192.168.2.4:3001
   volumes:
     - ./content:/var/lib/ghost/content
