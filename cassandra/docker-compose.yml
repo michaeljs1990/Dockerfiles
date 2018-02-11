@@ -1,0 +1,12 @@
+# https://docs.datastax.com/en/cassandra/3.0/cassandra/configuration/secureFireWall.html
+cassandra:
+  image: cassandra:3.11.1
+  ports:
+    - 7000:7000
+    - 7001:7001
+    - 7199:7199
+    - 9042:9042
+    - 9160:9160
+    - 9142:9142
+  volumes:
+    - /var/lib/cassandra:/var/lib/cassandra
