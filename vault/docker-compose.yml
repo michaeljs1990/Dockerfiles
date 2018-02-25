@@ -1,0 +1,15 @@
+version: '2'
+services:
+  vault:
+    image: vault:0.9.4
+    cap_add:
+     - IPC_LOCK
+    ports:
+     - "8200:8200"
+    environment:
+      VAULT_ADDR: 'http://0.0.0.0:8200'
+    volumes:
+     - ./logs:/vault/logs
+     - ./file:/vault/file
+     - ./config:/vault/config
+    command: server
