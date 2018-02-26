@@ -12,4 +12,5 @@ services:
      - ./logs:/vault/logs
      - ./file:/vault/file
      - ./config:/vault/config
+     - ./policy:/vault/policy
     command: server
