@@ -124,6 +124,22 @@ token_meta_role_name    devnode
 
 Now you can use this with the normal `vault login`.
 
+# Create New Path
+
+Since I had to be special above and create the policy path to be in `puppet` we now
+need to make that path since it's not available by default. To create it use the
+following command.
+
+```
+vault secrets enable --path=puppet kv
+```
+
+# Write value
+
+```
+vault write -f puppet/shared test=lol
+```
+
 ## New Users
 
 Now that we have some policies that we can add users to lets begin by creating some
