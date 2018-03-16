@@ -2,12 +2,15 @@ version: '2'
 services:
   ignite:
     image: apacheignite/ignite
-    networks:
-      - binding
+    # tty: true
+    # command: bash
     ports:
      - 11211:11211
      - 47100:47100
      - 47500:47500
      - 49112:49112
+    volumes:
+     - ./mem.conf:/tmp/conf/mem.conf
     environment:
-      CONFIG_URI: https://raw.githubusercontent.com/apache/ignite/master/examples/config/example-cache.xml
+      CONFIG_URI: /tmp/conf/mem.conf
+      JVM_OPTS: -Xms4g -Xmx4g
