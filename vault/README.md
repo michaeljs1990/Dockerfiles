@@ -101,6 +101,7 @@ getting the secret-id which we use for making a token in the next step.
 Key        Value
 ---        -----
 role_id    c1523c3b-92c3-4695-7a85-f679a1d11847
+
 /vault/policy # vault write -f auth/approle/role/devnode/secret-id
 Key                   Value
 ---                   -----
