@@ -1,7 +1,9 @@
-backend "mysql" {
-  username = "root"
-  password = "password"
+storage "mysql" {
   database = "vault"
+  table    = "vault"
+  username = "root"
+  password = "vault"
+  address = "mysql:3306"
 }
 
 listener "tcp" {

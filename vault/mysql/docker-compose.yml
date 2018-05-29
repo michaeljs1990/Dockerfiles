@@ -1,9 +1,8 @@
-# Note that the mysql password is set in this file and also maintained in the
-# HCL config file vault needs to connect to this.
-version: '2'
+version: '2.1'
 services:
   vault:
-    image: vault:0.9.4
+    image: vault:0.10.1
+    restart: always
     cap_add:
      - IPC_LOCK
     ports:
@@ -20,10 +19,11 @@ services:
     links: 
       - mysql
   mysql:
-    image: mysql:8.0
+    image: mysql:5.7
     ports:
      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: password   
-    volums:
+      MYSQL_ROOT_PASSWORD: vault
+      MYSQL_ROOT_HOST: '%'
+    volumes:
      - ./data:/var/lib/mysql
