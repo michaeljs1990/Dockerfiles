@@ -141,6 +141,12 @@ vault secrets enable --path=puppet kv
 vault write -f puppet/shared test=lol
 ```
 
+# Read value
+
+```
+vault read puppet/shared
+```
+
 ## New Users
 
 Now that we have some policies that we can add users to lets begin by creating some
