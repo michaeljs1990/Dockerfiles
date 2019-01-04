@@ -33,3 +33,7 @@ docker run \
 ```
 
 You will likely want to overwrite the /etc/cgitrc file as well if you are using this for anything outside playing around on localhost.
+
+## Other tools
+
+https://www.rahielkasim.com/mirror-git-repositories-and-serve-them-with-cgit/
