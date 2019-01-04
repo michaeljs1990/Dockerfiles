@@ -1,0 +1,15 @@
+#
+# cgit config
+#
+# https://git.zx2c4.com/cgit/tree/cgitrc.5.txt
+
+css=/cgit.css
+logo=/cgit.png
+max-stats=quarter
+snapshots=tar.gz tar.bz2
+enable-http-clone=1
+robots=noindex, nofollow
+virtual-root=/
+source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+enable-git-config=1
+scan-path=/repos/
