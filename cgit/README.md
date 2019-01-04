@@ -5,7 +5,7 @@ Simple git repository hosting. The official repository can be seen at https://gi
 
 ## Config Options
 
-I have provided what I think to do a minimal and sane set of config options in ``. However you can have a full look
+I have provided what I think to do a minimal and sane set of config options in `cgit/cgitrc`. However you can have a full look
 at all the config options provided at https://git.zx2c4.com/cgit/tree/cgitrc.5.txt and overwrite my file as you wish.
 
 ## Basic Workflow
